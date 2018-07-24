@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <title>Hello World</title>
+    <link rel="stylesheet" type="text/css" href="js2/slick.css"/>
+    <!-- // Add the new slick-theme.css if you want the default styling -->
+    <link rel="stylesheet" type="text/css" href="js2/slick-theme.css"/>
+
+
+
+    <style media="screen">
+    .your-class {
+    width: 100%;
+    margin: auto;
+    padding-top: 30%;
+    }
+    img {
+    max-width: 100%;
+    }
+
+    .slick-slide img {
+    opacity: 0.5;
+    transform: scale(0.8);
+    filter: blur(2px);
+    animation-name: toNormal;
+    animation-duration: .3s;
+    animation-iteration-count: 1;
+
+    }
+    .slick-active img {
+    opacity: 1;
+    transform: scale(1.0);
+    filter: blur(0px);
+    animation-name: toActive;
+    animation-duration: .3s;
+    animation-iteration-count: 1;
+    }
+    @keyframes toActive {
+    0% {
+        transform: scale(0.8);
+        filter: blur(2px);
+    } 100% {
+        transform: scale(1.0);
+        filter: blur(0);
+    }
+    }
+    @keyframes toNormal {
+    0% {
+        transform: scale(1.0);
+        filter: blur(0);
+
+    } 100% {
+        transform: scale(0.8);
+        filter: blur(2px);
+    }
+    }
+    </style>
+
+
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+    crossorigin="anonymous"></script>
+
+    <script
+    src="https://code.jquery.com/jquery-migrate-3.0.1.min.js"
+    integrity="sha256-F0O1TmEa4I8N24nY0bya59eP6svWcshqX1uzwaWC4F4="
+    crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+
+    $(function() {
+
+
+
+    // $('.your-class').slick({
+    //     dots: true,
+    //     arrows: true,
+    //     autoplay: false,
+    //     autoplaySpeed: 1000
+    // });
+
+
+    $('.your-class').slick({
+    centerMode: true,
+    centerPadding: '40px',
+    slidesToShow: 1,
+    mobileFirst: true,
+    edgeFriction: 0,
+    speed: 100,
+    responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+        arrows: false,
+        centerMode: true,
+        centerPadding: '40px',
+        slidesToShow: 3
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        arrows: false,
+        centerMode: true,
+        centerPadding: '40px',
+        slidesToShow: 1
+      }
+    }
+    ]
+    });
+    });
+    </script>
+
+    </head>
+    <body>
+    <div class="your-class">
+        <div><img src="img/1.jpg" alt=""></div>
+        <div><img src="img/2.jpg" alt=""></div>
+        <div><img src="img/3.jpg" alt=""></div>
+    </div>
+
+
+
+
+
+
+    <!-- <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script> -->
+    <script type="text/javascript" src="js2/slick.min.js"></script>
+
+<body>
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+    </script>
+</body>
+
+</html>
